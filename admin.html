@@ -39,8 +39,9 @@
           <label style="margin-top:8px">Price</label><input id="pPrice" type="number" />
           <label style="margin-top:8px">Stock</label><input id="pStock" type="number" value="10" />
           <label style="margin-top:8px">Description</label><textarea id="pDesc"></textarea>
-          <div style="margin-top:10px;display:flex;gap:8px"><button id="saveBtn" class="btn btn-primary">Save
-              Product</button><button id="resetBtn" class="btn btn-ghost">Reset</button></div>
+          <div style="margin-top:10px;display:flex;gap:8px">
+            <button id="saveBtn" class="btn btn-primary">Save Product</button>
+            <button id="resetBtn" class="btn btn-ghost">Reset</button></div>
         </div>
         <div>
           <div class="img-drop" id="dropZone">
@@ -55,9 +56,9 @@
     <div style="margin-top:12px" class="card">
       <h3 style="margin-top:0">Products</h3>
       <div style="overflow:auto;max-height:420px">
-        <table style="width:100%">
+        <table style="width:100%" margin-top:10px cellpadding="8" cellspacing="0">
           <thead>
-            <tr>
+            <tr style="text-align:left;border-bottom:2px solid var(--border)">
               <th>Product</th>
               <th>Category</th>
               <th>Price</th>
