@@ -1,4 +1,6 @@
+/* EzyKart - Glassmorphism Theme v1.0 */
 
+/* 1. ROOT & FONTS */
 :root{
   --blue:#0b63ff;
   --blue-2:#1e7bff;
@@ -6,37 +8,50 @@
   --muted:#6b7280;
   --bg:#f4f7fb;
   --card:#ffffff;
-  --glass: rgba(255,255,255,0.75);
+  --glass: rgba(255,255,255,0.75); /* Your glass background */
   --accent: linear-gradient(90deg,var(--blue),var(--blue-2));
   font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
 }
+
+/* 2. GLOBAL STYLES */
 *{box-sizing:border-box}
 body{margin:0;background:linear-gradient(180deg,#f7fbff,#eef6ff);color:#071428}
 a{color:inherit;text-decoration:none}
 .container{max-width:1200px;margin:20px auto;padding:0 18px}
 
-/* Navbar */
+/* 3. NAVBAR */
 .navbar{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
-.brand{display:flex;align-items:center;gap:12px}
+.brand{display:flex;align:items:center;gap:12px}
 .logo{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;color:white;background:linear-gradient(135deg,var(--blue),var(--blue-2));box-shadow:0 10px 30px rgba(11,99,255,0.12)}
 .nav-links{display:flex;gap:14px;align-items:center}
 .nav-links a{padding:8px 12px;border-radius:10px;font-weight:700;color:var(--navy);opacity:0.95}
 .cart-bubble{background:#fff;border-radius:999px;padding:6px 10px;box-shadow:0 8px 22px rgba(2,6,23,0.06);font-weight:800}
 
-/* Hero / banners */
+/* 4. HERO / BANNERS */
 .hero{margin-top:12px;display:flex;gap:18px;align-items:center}
 .banner{flex:1;border-radius:12px;overflow:hidden;position:relative;min-height:200px;box-shadow:0 18px 40px rgba(2,6,23,0.06)}
 .banner img{width:100%;height:100%;object-fit:cover;display:block}
 .banner .overlay{position:absolute;left:20px;top:20px;color:white}
 
-/* Category sections */
+/* 5. CATEGORY SECTIONS */
 .section{margin-top:22px}
 .section h2{margin:0 0 12px 0;font-size:18px}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
 
-/* Card */
-.card{background:rgba(255,255,255,0.9);backdrop-filter:blur(6px);border-radius:12px;padding:12px;box-shadow:0 12px 30px rgba(2,6,23,0.05);transition:transform .18s ease}
-.card:hover{transform:translateY(-6px)}
+/* 6. PRODUCT CARD */
+.card{
+  background: var(--glass); /* Using your glass var */
+  backdrop-filter:blur(6px);
+  border: 1px solid rgba(255,255,255, 0.8); /* Subtle border for glass */
+  border-radius:12px;
+  padding:12px;
+  box-shadow:0 12px 30px rgba(2,6,23,0.05);
+  transition: all .18s ease; /* Animate shadow too */
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow: 0 18px 35px rgba(2,6,23,0.08); /* Stronger shadow on hover */
+}
 .card .img{height:160px;border-radius:8px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#fbfdff}
 .card img{width:100%;height:100%;object-fit:cover}
 .pname{font-weight:800;margin-top:10px}
@@ -44,17 +59,205 @@ a{color:inherit;text-decoration:none}
 .pprice{font-weight:800;margin-top:8px}
 .actions{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
 
-/* Admin styles small */
-.form-row{display:grid;grid-template-columns:1fr 320px;gap:12px}
-
-/* Inputs */
-input,select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(11,99,255,0.06);background:#fff}
+/* 7. FORMS & INPUTS (Upgraded) */
+.form-group { margin-bottom: 16px; }
+label {
+  display: block;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+input,select,textarea{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid rgba(11,99,255,0.06);
+  background:#fff;
+  transition: all 0.2s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--blue-2);
+  box-shadow: 0 0 0 3px rgba(11, 99, 255, 0.1);
+}
 .btn{padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font-weight:700}
 .btn-primary{background:linear-gradient(90deg,var(--blue),var(--blue-2));color:white}
 .btn-ghost{background:transparent;border:1px solid rgba(11,99,255,0.08);color:var(--navy)}
 
-/* Empty */
-.empty{padding:40px;text-align:center;color:var(--muted);border-radius:10px;border:1px dashed rgba(11,99,255,0.06);background:linear-gradient(90deg, rgba(11,99,255,0.02), transparent)}
 
-/* Responsive */
-@media (max-width:800px){ .hero{flex-direction:column} .form-row{grid-template-columns:1fr} .card .img{height:140px} }
+/* 8. ADMIN FORM LAYOUT (NEW) */
+.form-row{display:grid;grid-template-columns:1fr 320px;gap:12px}
+.admin-form {
+  /* Apply the glass style */
+  background: var(--glass);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 12px 30px rgba(2,6,23,0.05);
+  border: 1px solid rgba(255,255,255, 0.9);
+}
+#dropZone {
+  border: 2px dashed rgba(11,99,255,0.2);
+  border-radius: 8px;
+  padding: 40px;
+  text-align: center;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+  background: rgba(11,99,255,0.02);
+}
+#dropZone:hover {
+  border-color: var(--blue);
+  background: rgba(11,99,255,0.05);
+}
+#preview {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-top: 16px;
+  object-fit: cover;
+}
+
+/* 9. ADMIN & DATA TABLES (NEW) */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  /* Use the glass style again */
+  background: var(--glass);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(2,6,23,0.05);
+  border: 1px solid rgba(255,255,255, 0.9);
+}
+th {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.7); /* Slightly more opaque header */
+}
+td {
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(11,99,255,0.06);
+  vertical-align: middle;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: rgba(11,99,255,0.02); }
+
+/* Cart summary bar */
+table + div {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  /* Glass style */
+  background: var(--glass);
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(2,6,23,0.05);
+  border: 1px solid rgba(255,255,255, 0.9);
+}
+table + div div[style*="font-weight"] {
+  font-size: 20px;
+  font-weight: 800 !important;
+  color: var(--navy);
+}
+
+/* 10. PAYMENT MODAL (NEW) */
+.payment-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Use a stronger blur for the background */
+  background: rgba(7, 40, 74, 0.6); 
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none; 
+}
+.payment-modal {
+  /* THEME: Use the primary glass style */
+  background: rgba(255, 255, 255, 0.85); /* Slightly more opaque for readability */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255, 0.9);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 450px;
+  box-shadow: 0 20px 50px rgba(2,6,23,0.15);
+  padding: 28px;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.payment-overlay[style*="display: flex"] .payment-modal {
+  transform: scale(1);
+  opacity: 1;
+}
+.payment-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 20px 0;
+}
+.payment-options label {
+  /* Glassy-light option */
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgba(11,99,255,0.06);
+  border-radius: 8px;
+  padding: 14px;
+  display: flex;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.payment-options label:hover {
+  background: #fff;
+  border-color: var(--blue-2);
+}
+.payment-options input[type="radio"]:checked + span {
+  font-weight: 700;
+  color: var(--blue);
+}
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+/* 11. UTILITY & HELPERS */
+.empty{
+  padding:40px;
+  text-align:center;
+  color:var(--muted);
+  border-radius:10px;
+  border:1px dashed rgba(11,99,255,0.06);
+  background:linear-gradient(90deg, rgba(11,99,255,0.02), transparent)
+}
+.payment-error {
+  color: #D8000C;
+  background: #FFD2D2;
+  border: 1px solid #D8000C;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-top: 15px;
+  display: none; 
+}
+
+/* 12. RESPONSIVE */
+@media (max-width:800px){ 
+  .hero{flex-direction:column} 
+  .form-row{grid-template-columns:1fr} 
+  .card .img{height:140px} 
+}
