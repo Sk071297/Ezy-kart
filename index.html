@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <title>EzyKart — Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="brand">
+        <div class="logo">EK</div>
+        <div>
+          <div style="font-weight:800">EzyKart</div>
+          <div style="font-size:13px;color:var(--muted)">Classy · Vibrant</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="cart.html" id="cartLink" class="cart-bubble">Cart (0)</a>
+
+        <a href="login.html" target="_blank">Login</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="banner"><img src="assets/banner1.jpg" alt="banner1" /></div>
+      <div style="display:flex;flex-direction:column;gap:12px;flex-basis:360px">
+        <div class="banner" style="min-height:98px"><img src="assets/banner2.jpg" alt="banner2" /></div>
+        <div class="banner" style="min-height:98px"><img src="assets/banner3.jpg" alt="banner3" /></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Shop by Category</h2>
+      <div style="display:flex;gap:12px;margin-top:12px">
+        <a href="products.html?cat=Electronics" class="btn btn-ghost" target="_blank">Electronics</a>
+        <a href="products.html?cat=Clothing" class="btn btn-ghost" target="_blank">Clothing</a>
+        <a href="products.html?cat=Home" class="btn btn-ghost" target="_blank">Home Appliances</a>
+        <a href="products.html" class="btn btn-ghost" target="_blank">View All</a>
+      </div>
+    </section>
+
+    <div style="height:30px"></div>
+    <div class="footer" style="margin-top:40px">© EzyKart — Elegant shopping experience</div>
+  </div>
+  <script>
+    // cart count
+    function updateCartBubble() { const c = JSON.parse(localStorage.getItem('ezk_cart_v1') || '[]'); document.getElementById('cartLink').textContent = 'Cart (' + c.length + ')'; }
+    document.addEventListener('DOMContentLoaded', updateCartBubble);
+  </script>
+</body>
+
+</html>

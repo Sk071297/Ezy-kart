@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="img/logo.png" type="image/png">
+    <title>EzyKart Admin Login</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <div class="container" style="max-width:420px; margin-top:60px;">
+        <div class="card" style="padding:24px;">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+                <div class="logo">EK</div>
+                <div>
+                    <div style="font-weight:800;">EzyKart Admin Login</div>
+                    <div style="color:var(--muted); font-size:13px;">Enter your credentials to continue</div>
+                </div>
+            </div>
+
+            <div style="margin-top:12px;">
+                <label>Username</label>
+                <input id="username" value="admin" />
+
+                <label style="margin-top:8px;">Password</label>
+                <div style="position: relative;">
+                    <input id="password" type="password" style="width:100%; box-sizing:border-box; padding-right:40px;" />
+                    <button type="button" id="togglePassword"
+                        style="position:absolute; top:50%; right:8px; transform:translateY(-50%); background:transparent; border:none; cursor:pointer; font-size:18px; color:#555; padding:0;">
+                        👁️
+                    </button>
+                </div>
+
+                <div style="margin-top:12px; display:flex; gap:8px;">
+                    <button id="loginBtn" class="btn btn-primary">Login</button>
+                    <button id="cancelBtn" class="btn btn-ghost">Clear</button>
+                </div>
+            </div>
+
+            <div id="msg" style="margin-top:10px; color:red; display:none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // default password
+        const ADMIN_PWD_KEY = 'ezk_admin_pwd_v1';
+        if (!localStorage.getItem(ADMIN_PWD_KEY)) {
+            localStorage.setItem(ADMIN_PWD_KEY, 'admin123');
+        }
+
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            const u = document.getElementById('username').value.trim();
+            const p = document.getElementById('password').value;
+            const stored = localStorage.getItem(ADMIN_PWD_KEY);
+
+            if (u === 'admin' && p === stored) {
+                localStorage.setItem('ezk_admin_loggedin', '1');
+                window.location.href = 'admin.html';
+            } else {
+                const m = document.getElementById('msg');
+                m.style.display = 'block';
+                m.textContent = 'Invalid credentials.';
+            }
+        });
+
+        document.getElementById('cancelBtn').addEventListener('click', () => {
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        });
+
+        // Password Toggle
+        const passwordInput = document.getElementById('password');
+        const togglePasswordButton = document.getElementById('togglePassword');
+
+        togglePasswordButton.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+    </script>
+</body>
+
+</html>
